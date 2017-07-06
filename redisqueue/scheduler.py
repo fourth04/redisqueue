@@ -105,7 +105,7 @@ class Scheduler(object):
             self.flush()
         # notice if there are objs already in the queue to resume the project
         if len(self.queue):
-            self.logger.info("Resuming project (%d objs scheduled in %s)" % len(self.queue), self.queue_key)
+            self.logger.info("Resuming project (%d objs scheduled in %s)" % (len(self.queue), self.queue_key))
 
     def close(self):
         if not self.persist:
@@ -248,8 +248,8 @@ class PipeScheduler(object):
             self.flush()
         # notice if there are objs already in the queue to resume the project
         if len(self.queue_in) or len(self.queue_out):
-            self.logger.info("Resuming project (%d objs scheduled in %s)" % len(self.queue_in), self.queue_in_key)
-            self.logger.info("Resuming project (%d objs scheduled in %s)" % len(self.queue_out), self.queue_out_key)
+            self.logger.info("Resuming project (%d objs scheduled in %s)" % (len(self.queue_in), self.queue_in_key))
+            self.logger.info("Resuming project (%d objs scheduled in %s)" % (len(self.queue_out), self.queue_out_key))
 
     def close(self):
         if not self.persist:
@@ -405,8 +405,8 @@ class DupeFilterScheduler(Scheduler):
             self.flush()
         # notice if there are objs already in the queue to resume the project
         if len(self.df) or len(self.queue):
-            self.logger.info("Resuming project (%d objs scheduled in %s)" % len(self.queue), self.dupefilter_key)
-            self.logger.info("Resuming project (%d objs scheduled in %s)" % len(self.queue), self.queue_key)
+            self.logger.info("Resuming project (%d objs scheduled in %s)" % (len(self.df), self.dupefilter_key))
+            self.logger.info("Resuming project (%d objs scheduled in %s)" % (len(self.queue), self.queue_key))
 
     def flush(self):
         self.df.clear()

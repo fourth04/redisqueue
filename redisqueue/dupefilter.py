@@ -95,6 +95,10 @@ class RFPDupeFilter(object):
         """
         return obj_fingerprint(obj)
 
+    def __len__(self):
+        """Return the length of the queue"""
+        return self.server.scard(self.key)
+
     def close(self, reason=''):
         """Delete data on close. Called by Scrapy's scheduler.
 
